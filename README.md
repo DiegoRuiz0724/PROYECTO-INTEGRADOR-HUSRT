@@ -21,7 +21,7 @@
 
 ![Pantallazo 6](Plan de practicas.png)
 
-![Pantallazo 7](Control de presensia.png)
+![Pantallazo 7](Control de presencia.png)
 
 ![Pantallazo 8](Reportes y estadisticas.png)
 
