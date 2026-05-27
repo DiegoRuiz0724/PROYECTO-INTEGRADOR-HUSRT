@@ -1,0 +1,84 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<?import javafx.scene.control.*?>
+<?import javafx.scene.layout.*?>
+
+<VBox xmlns:fx="http://javafx.com/fxml" fx:controller="com.diegoruiz.controllers.PlanPracticasController" spacing="30" style="-fx-background-color: transparent;" stylesheets="@../styles.css">
+
+    <!-- Encabezado -->
+    <VBox spacing="8">
+        <Label text="📅 Programación Académica" style="-fx-text-fill: #3b82f6; -fx-font-size: 12; -fx-font-weight: bold; -fx-text-transform: uppercase;"/>
+        <Label text="Plan de Prácticas" styleClass="card-title" style="-fx-font-size: 28;"/>
+        <Label text="Asignación de turnos, docentes y servicios hospitalarios para rotaciones." style="-fx-text-fill: #64748b; -fx-font-size: 14;"/>
+    </VBox>
+
+    <HBox spacing="25" VBox.vgrow="ALWAYS">
+        <!-- Formulario lateral -->
+        <VBox spacing="20" styleClass="card" prefWidth="400" style="-fx-padding: 30;">
+            <Label text="📅 Nueva Asignación" style="-fx-font-size: 18; -fx-font-weight: bold; -fx-text-fill: #1e293b;"/>
+
+            <VBox spacing="15">
+                <VBox spacing="8">
+                    <Label text="Programa Académico (Área)" style="-fx-font-weight: bold; -fx-text-fill: #475569; -fx-font-size: 13;"/>
+                    <ComboBox fx:id="cbPrograma" prefWidth="Infinity" promptText="Seleccione programa..."/>
+                </VBox>
+
+                <VBox spacing="8">
+                    <Label text="Docente Responsable" style="-fx-font-weight: bold; -fx-text-fill: #475569; -fx-font-size: 13;"/>
+                    <ComboBox fx:id="cbDocente" prefWidth="Infinity" promptText="Seleccione docente..."/>
+                </VBox>
+
+                <VBox spacing="8">
+                    <Label text="Servicio / Área" style="-fx-font-weight: bold; -fx-text-fill: #475569; -fx-font-size: 13;"/>
+                    <ComboBox fx:id="cbServicio" prefWidth="Infinity" promptText="Seleccione servicio..."/>
+                </VBox>
+
+                <HBox spacing="15">
+                    <VBox spacing="8" HBox.hgrow="ALWAYS">
+                        <Label text="Mes" style="-fx-font-weight: bold; -fx-text-fill: #475569; -fx-font-size: 13;"/>
+                        <TextField fx:id="txtMes" promptText="1-12"/>
+                    </VBox>
+                    <VBox spacing="8" HBox.hgrow="ALWAYS">
+                        <Label text="Año" style="-fx-font-weight: bold; -fx-text-fill: #475569; -fx-font-size: 13;"/>
+                        <TextField fx:id="txtAnio" promptText="2024"/>
+                    </VBox>
+                </HBox>
+
+                <VBox spacing="8">
+                    <Label text="Día de la Semana" style="-fx-font-weight: bold; -fx-text-fill: #475569; -fx-font-size: 13;"/>
+                    <ComboBox fx:id="cbDiaSemana" prefWidth="Infinity" promptText="Seleccione día..."/>
+                </VBox>
+
+                <HBox spacing="15">
+                    <VBox spacing="8" HBox.hgrow="ALWAYS">
+                        <Label text="Hora Inicio" style="-fx-font-weight: bold; -fx-text-fill: #475569; -fx-font-size: 13;"/>
+                        <TextField fx:id="txtHoraInicio" promptText="07:00"/>
+                    </VBox>
+                    <VBox spacing="8" HBox.hgrow="ALWAYS">
+                        <Label text="Hora Fin" style="-fx-font-weight: bold; -fx-text-fill: #475569; -fx-font-size: 13;"/>
+                        <TextField fx:id="txtHoraFin" promptText="13:00"/>
+                    </VBox>
+                </HBox>
+
+                <Button text="💾 GUARDAR ASIGNACIÓN" onAction="#onGuardarPlan" maxWidth="Infinity" prefHeight="50" styleClass="btn-success" style="-fx-margin: 10 0 0 0;"/>
+                <Label fx:id="lblMensaje" style="-fx-font-size: 13; -fx-font-weight: bold; -fx-text-alignment: center;"/>
+            </VBox>
+        </VBox>
+
+        <!-- Tabla de horarios -->
+        <VBox spacing="15" HBox.hgrow="ALWAYS">
+            <Label text="🗓 Turnos Programados" style="-fx-font-size: 18; -fx-font-weight: bold; -fx-text-fill: #1e293b;"/>
+            <TableView fx:id="tablaHorarios" VBox.vgrow="ALWAYS">
+                <columns>
+                    <TableColumn fx:id="colPrograma" text="Programa / Área" prefWidth="180"/>
+                    <TableColumn fx:id="colServicio" text="Servicio" prefWidth="150"/>
+                    <TableColumn fx:id="colDia" text="Día" prefWidth="100"/>
+                    <TableColumn fx:id="colInicio" text="Inicio" prefWidth="80" style="-fx-alignment: CENTER;"/>
+                    <TableColumn fx:id="colFin" text="Fin" prefWidth="80" style="-fx-alignment: CENTER;"/>
+                </columns>
+                <columnResizePolicy>
+                    <TableView fx:constant="CONSTRAINED_RESIZE_POLICY"/>
+                </columnResizePolicy>
+            </TableView>
+        </VBox>
+    </HBox>
+</VBox>

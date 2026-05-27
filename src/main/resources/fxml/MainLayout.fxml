@@ -1,0 +1,58 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<?import javafx.scene.control.*?>
+<?import javafx.scene.layout.*?>
+<?import javafx.scene.text.*?>
+<?import javafx.geometry.Insets?>
+<?import javafx.scene.shape.Circle?>
+
+<BorderPane xmlns:fx="http://javafx.com/fxml" fx:controller="com.diegoruiz.controllers.MainController" style="-fx-background-color: #f8fafc;" stylesheets="@../styles.css">
+
+    <!-- Sidebar izquierdo mejorado -->
+    <left>
+        <VBox styleClass="sidebar" prefWidth="260" spacing="0">
+            <VBox spacing="8" style="-fx-padding: 40 25 40 25;">
+                <HBox spacing="10" alignment="CENTER_LEFT">
+                    <Label text="🏥" style="-fx-font-size: 28;"/>
+                    <VBox>
+                        <Label text="HUSRT" style="-fx-text-fill: white; -fx-font-size: 24; -fx-font-weight: bold; -fx-letter-spacing: 1;"/>
+                        <Label text="Sistema de Gestión" style="-fx-text-fill: #93c5fd; -fx-font-size: 11; -fx-font-weight: bold; -fx-text-transform: uppercase;"/>
+                    </VBox>
+                </HBox>
+            </VBox>
+
+            <VBox spacing="5" VBox.vgrow="ALWAYS">
+                <Button fx:id="btnPorteria" text="🏠  Inicio / Portería" onAction="#mostrarPorteria" maxWidth="Infinity" styleClass="nav-button"/>
+                <Button fx:id="btnRegistro" text="👥  Registro Estudiantes" onAction="#mostrarRegistroEstudiantes" maxWidth="Infinity" styleClass="nav-button"/>
+                <Button fx:id="btnPlanPracticas" text="📅  Plan de Prácticas" onAction="#mostrarPlanPracticas" maxWidth="Infinity" styleClass="nav-button"/>
+                <Button fx:id="btnPresencia" text="✅  Control Presencia" onAction="#mostrarPresencia" maxWidth="Infinity" styleClass="nav-button"/>
+                <Button fx:id="btnReportes" text="📈  Reportes y Estadísticas" onAction="#mostrarReportes" maxWidth="Infinity" styleClass="nav-button"/>
+                <Button fx:id="btnNotificaciones" text="🔔  Notificaciones" onAction="#mostrarNotificaciones" maxWidth="Infinity" styleClass="nav-button"/>
+                <Region VBox.vgrow="ALWAYS"/>
+                <Button text="🚪  Cerrar Sesión" onAction="#onLogout" maxWidth="Infinity" styleClass="nav-button" style="-fx-text-fill: #fca5a5;"/>
+            </VBox>
+
+            <VBox spacing="15" style="-fx-padding: 25; -fx-background-color: rgba(0,0,0,0.15);">
+                <VBox spacing="2">
+                    <Label text="Hospital Universitario" style="-fx-text-fill: #94a3b8; -fx-font-size: 10; -fx-font-weight: bold;"/>
+                    <Label text="San Rafael de Tunja" style="-fx-text-fill: white; -fx-font-size: 12; -fx-font-weight: bold;"/>
+                </VBox>
+                <HBox alignment="CENTER_LEFT" spacing="8">
+                    <Circle radius="4" fill="#10b981"/>
+                    <Label text="Sistema en línea" style="-fx-text-fill: #10b981; -fx-font-size: 11; -fx-font-weight: bold;"/>
+                </HBox>
+            </VBox>
+        </VBox>
+    </left>
+
+    <center>
+        <ScrollPane fitToWidth="true" fitToHeight="true" style="-fx-background-color: transparent; -fx-background: #f1f5f9;">
+            <StackPane fx:id="rootPane">
+                <padding>
+                    <Insets top="25" right="30" bottom="25" left="30"/>
+                </padding>
+                <!-- El contenido se cargará aquí con animaciones suaves -->
+            </StackPane>
+        </ScrollPane>
+    </center>
+
+</BorderPane>

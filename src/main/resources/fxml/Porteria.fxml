@@ -1,0 +1,105 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<?import javafx.scene.control.*?>
+<?import javafx.scene.layout.*?>
+<?import javafx.scene.shape.*?>
+<?import javafx.geometry.Insets?>
+
+<VBox xmlns:fx="http://javafx.com/fxml"
+      fx:controller="com.diegoruiz.controllers.PorteriaController"
+      spacing="30" style="-fx-background-color: transparent;"
+      stylesheets="@../styles.css">
+
+    <!-- Encabezado con degradado suave -->
+    <VBox spacing="8" style="-fx-padding: 0 0 10 0;">
+        <Label text="📍 Punto de Control" style="-fx-text-fill: #3b82f6; -fx-font-size: 12; -fx-font-weight: bold; -fx-text-transform: uppercase;"/>
+        <Label text="Control de Acceso HUSRT" styleClass="card-title" style="-fx-font-size: 28;"/>
+        <Label text="Verificación de requisitos, horarios y registro de flujo de estudiantes." style="-fx-text-fill: #64748b; -fx-font-size: 14;"/>
+    </VBox>
+
+    <!-- Panel de Acción Principal -->
+    <HBox spacing="25" styleClass="card" style="-fx-padding: 30; -fx-alignment: center-left;">
+        <VBox spacing="10" HBox.hgrow="ALWAYS">
+            <Label text="Documento de Identidad" style="-fx-font-weight: bold; -fx-text-fill: #475569; -fx-font-size: 14;"/>
+            <TextField fx:id="txtDocumento"
+                       promptText="Escanee o ingrese documento..."
+                       prefHeight="55"
+                       style="-fx-font-size: 18; -fx-background-radius: 12; -fx-border-radius: 12;"/>
+        </VBox>
+        
+        <HBox spacing="15" alignment="BOTTOM_CENTER">
+            <Button fx:id="btnRegistrarIngreso" text="📥 REGISTRAR ENTRADA"
+                    onAction="#onRegistrarIngreso"
+                    prefHeight="55" prefWidth="240"
+                    styleClass="btn-success" style="-fx-font-size: 14;"/>
+            
+            <Button fx:id="btnRegistrarSalida" text="📤 REGISTRAR SALIDA"
+                    onAction="#onRegistrarSalida"
+                    prefHeight="55" prefWidth="240"
+                    styleClass="btn-primary" style="-fx-font-size: 14;"/>
+        </HBox>
+    </HBox>
+
+    <!-- Semáforo y Detalles (Se expande si hay datos) -->
+    <VBox fx:id="panelResultado" spacing="0" styleClass="card" style="-fx-padding: 0; -fx-overflow: hidden;" VBox.vgrow="ALWAYS">
+        <!-- Banner de Estado Dinámico -->
+        <HBox fx:id="statusBanner" spacing="25" style="-fx-padding: 25; -fx-background-color: #f8fafc; -fx-alignment: center-left; -fx-background-radius: 15 15 0 0;">
+            <StackPane>
+                <Circle fx:id="statusCircle" radius="35" fill="#e2e8f0"/>
+                <Label text="✓" style="-fx-text-fill: white; -fx-font-size: 35; -fx-font-weight: bold;"/>
+            </StackPane>
+            
+            <VBox spacing="5" HBox.hgrow="ALWAYS">
+                <Label fx:id="lblEstadoAcceso" text="ESPERANDO DOCUMENTO" style="-fx-font-size: 24; -fx-font-weight: bold; -fx-text-fill: #94a3b8;"/>
+                <Label fx:id="lblMotivoRechazo" style="-fx-text-fill: #ef4444; -fx-font-size: 15; -fx-font-weight: bold;"/>
+            </VBox>
+            
+            <VBox alignment="CENTER_RIGHT">
+                <Label text="HORA ACTUAL" style="-fx-text-fill: #94a3b8; -fx-font-size: 10; -fx-font-weight: bold;"/>
+                <Label text="10:45 AM" style="-fx-font-size: 18; -fx-font-weight: bold; -fx-text-fill: #1e293b;"/>
+            </VBox>
+        </HBox>
+
+        <Separator/>
+
+        <!-- Información Detallada en Grid -->
+        <GridPane hgap="40" vgap="25" style="-fx-padding: 35;">
+            <columnConstraints>
+                <ColumnConstraints percentWidth="33"/>
+                <ColumnConstraints percentWidth="33"/>
+                <ColumnConstraints percentWidth="33"/>
+            </columnConstraints>
+
+            <!-- Fila 1 -->
+            <VBox GridPane.columnIndex="0" GridPane.rowIndex="0" spacing="5">
+                <Label text="ESTUDIANTE" style="-fx-text-fill: #94a3b8; -fx-font-size: 11; -fx-font-weight: bold; -fx-text-transform: uppercase;"/>
+                <Label fx:id="lblNombreEstudiante" text="---" style="-fx-font-size: 18; -fx-font-weight: bold; -fx-text-fill: #0f172a;"/>
+            </VBox>
+
+            <VBox GridPane.columnIndex="1" GridPane.rowIndex="0" spacing="5">
+                <Label text="PROGRAMA ACADÉMICO" style="-fx-text-fill: #94a3b8; -fx-font-size: 11; -fx-font-weight: bold; -fx-text-transform: uppercase;"/>
+                <Label fx:id="lblPrograma" text="---" style="-fx-font-size: 16; -fx-text-fill: #334155;"/>
+            </VBox>
+
+            <VBox GridPane.columnIndex="2" GridPane.rowIndex="0" spacing="5">
+                <Label text="SEMESTRE" style="-fx-text-fill: #94a3b8; -fx-font-size: 11; -fx-font-weight: bold; -fx-text-transform: uppercase;"/>
+                <Label fx:id="lblSemestre" text="---" style="-fx-font-size: 16; -fx-text-fill: #334155;"/>
+            </VBox>
+
+            <!-- Fila 2 -->
+            <VBox GridPane.columnIndex="0" GridPane.rowIndex="1" spacing="5">
+                <Label text="SERVICIO ASIGNADO" style="-fx-text-fill: #94a3b8; -fx-font-size: 11; -fx-font-weight: bold; -fx-text-transform: uppercase;"/>
+                <Label fx:id="lblServicio" text="---" style="-fx-font-size: 16; -fx-font-weight: bold; -fx-text-fill: #3b82f6;"/>
+            </VBox>
+
+            <VBox GridPane.columnIndex="1" GridPane.rowIndex="1" spacing="5">
+                <Label text="DOCENTE RESPONSABLE" style="-fx-text-fill: #94a3b8; -fx-font-size: 11; -fx-font-weight: bold; -fx-text-transform: uppercase;"/>
+                <Label fx:id="lblDocente" text="---" style="-fx-font-size: 16; -fx-text-fill: #334155;"/>
+            </VBox>
+
+            <VBox GridPane.columnIndex="2" GridPane.rowIndex="1" spacing="5">
+                <Label text="TURNO / FRANJA" style="-fx-text-fill: #94a3b8; -fx-font-size: 11; -fx-font-weight: bold; -fx-text-transform: uppercase;"/>
+                <Label fx:id="lblFranja" text="---" style="-fx-font-size: 16; -fx-text-fill: #334155;"/>
+            </VBox>
+        </GridPane>
+    </VBox>
+</VBox>

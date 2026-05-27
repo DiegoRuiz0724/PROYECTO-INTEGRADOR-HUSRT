@@ -1,0 +1,36 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<?import javafx.scene.control.*?>
+<?import javafx.scene.layout.*?>
+
+<VBox xmlns:fx="http://javafx.com/fxml"
+      fx:controller="com.diegoruiz.controllers.PresenciaController"
+      spacing="25" style="-fx-padding: 10; -fx-background-color: transparent;"
+      stylesheets="@../styles.css">
+
+    <HBox style="-fx-alignment: center-left;" spacing="20">
+        <VBox spacing="5" HBox.hgrow="ALWAYS">
+            <Label text="Presencia en Tiempo Real" styleClass="card-title" style="-fx-font-size: 24;"/>
+            <Label text="Listado de estudiantes actualmente dentro del hospital" style="-fx-text-fill: #64748b;"/>
+            <Label fx:id="lblEstadoEstudiante" style="-fx-font-size: 14;"/>
+        </VBox>
+        <VBox spacing="5" style="-fx-alignment: center-right;">
+            <Label fx:id="lblTotal" style="-fx-font-size: 18; -fx-text-fill: #10b981; -fx-font-weight: bold;"/>
+            <Button text="↺  Refrescar Panel" onAction="#onRefrescar"
+                    styleClass="btn-primary" prefHeight="35" prefWidth="160"/>
+        </VBox>
+    </HBox>
+
+    <VBox spacing="10" VBox.vgrow="ALWAYS" styleClass="card" style="-fx-padding: 10;">
+        <TableView fx:id="tablaPresencia" VBox.vgrow="ALWAYS">
+            <columns>
+                <TableColumn fx:id="colDocumento" text="Documento"      prefWidth="150"/>
+                <TableColumn fx:id="colNombre"    text="Estudiante"     prefWidth="300"/>
+                <TableColumn fx:id="colServicio"  text="Servicio / Área" prefWidth="200"/>
+                <TableColumn fx:id="colEntrada"   text="Hora de Ingreso" prefWidth="200"/>
+            </columns>
+            <columnResizePolicy>
+                <TableView fx:constant="CONSTRAINED_RESIZE_POLICY"/>
+            </columnResizePolicy>
+        </TableView>
+    </VBox>
+</VBox>

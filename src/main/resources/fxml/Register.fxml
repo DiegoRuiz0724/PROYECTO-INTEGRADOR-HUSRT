@@ -1,0 +1,93 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<?import javafx.scene.control.*?>
+<?import javafx.scene.layout.*?>
+<?import javafx.scene.text.*?>
+<?import javafx.geometry.Insets?>
+
+<ScrollPane xmlns:fx="http://javafx.com/fxml" fx:controller="com.diegoruiz.controllers.RegisterController" fitToWidth="true" fitToHeight="true" style="-fx-background-color: #f1f5f9;" stylesheets="@../styles.css">
+
+    <StackPane style="-fx-background-color: transparent;">
+        <VBox alignment="CENTER" spacing="25" maxWidth="500" maxHeight="650" styleClass="card" style="-fx-padding: 40; -fx-background-radius: 20;">
+
+            <VBox alignment="CENTER" spacing="10">
+                <Label text="📝" style="-fx-font-size: 40;"/>
+                <Label text="Crear Cuenta" style="-fx-font-size: 28; -fx-font-weight: bold; -fx-text-fill: #1e293b;"/>
+                <Label text="Regístrese para acceder al sistema HUSRT" style="-fx-text-fill: #64748b; -fx-font-size: 13;"/>
+            </VBox>
+
+            <VBox spacing="15">
+                <VBox spacing="5">
+                    <Label text="Nombre de Usuario" style="-fx-font-weight: bold; -fx-text-fill: #475569;"/>
+                    <TextField fx:id="txtUsername" promptText="Ej: juan.perez" style="-fx-pref-height: 40; -fx-background-radius: 8;"/>
+                </VBox>
+
+                <HBox spacing="15">
+                    <VBox spacing="5" HBox.hgrow="ALWAYS">
+                        <Label text="Nombres" style="-fx-font-weight: bold; -fx-text-fill: #475569;"/>
+                        <TextField fx:id="txtNombres" promptText="Ej: Juan" style="-fx-pref-height: 40; -fx-background-radius: 8;"/>
+                    </VBox>
+                    <VBox spacing="5" HBox.hgrow="ALWAYS">
+                        <Label text="Apellidos" style="-fx-font-weight: bold; -fx-text-fill: #475569;"/>
+                        <TextField fx:id="txtApellidos" promptText="Ej: Pérez" style="-fx-pref-height: 40; -fx-background-radius: 8;"/>
+                    </VBox>
+                </HBox>
+
+                <HBox spacing="15">
+                    <VBox fx:id="containerDocumento" spacing="5" HBox.hgrow="ALWAYS">
+                        <Label text="Documento (ID)" style="-fx-font-weight: bold; -fx-text-fill: #475569;"/>
+                        <TextField fx:id="txtDocumento" promptText="Ingrese ID" style="-fx-pref-height: 40; -fx-background-radius: 8;"/>
+                    </VBox>
+                    <VBox spacing="5" HBox.hgrow="ALWAYS">
+                        <Label text="Tipo Estudiante" style="-fx-font-weight: bold; -fx-text-fill: #475569;"/>
+                        <ComboBox fx:id="cbTipoEstudiante" maxWidth="Infinity" promptText="Seleccione" style="-fx-pref-height: 40; -fx-background-radius: 8;"/>
+                    </VBox>
+                </HBox>
+
+                <HBox spacing="15">
+                    <VBox spacing="5" HBox.hgrow="ALWAYS">
+                        <Label text="Universidad" style="-fx-font-weight: bold; -fx-text-fill: #475569;"/>
+                        <ComboBox fx:id="cbUniversidad" maxWidth="Infinity" promptText="Seleccione" style="-fx-pref-height: 40; -fx-background-radius: 8;"/>
+                    </VBox>
+                    <VBox spacing="5" HBox.hgrow="ALWAYS">
+                        <Label text="Programa" style="-fx-font-weight: bold; -fx-text-fill: #475569;"/>
+                        <ComboBox fx:id="cbPrograma" maxWidth="Infinity" promptText="Seleccione" style="-fx-pref-height: 40; -fx-background-radius: 8;"/>
+                    </VBox>
+                </HBox>
+
+                <VBox spacing="5">
+                    <Label text="Correo Electrónico" style="-fx-font-weight: bold; -fx-text-fill: #475569;"/>
+                    <TextField fx:id="txtEmail" promptText="estudiante@universidad.edu.co" style="-fx-pref-height: 40; -fx-background-radius: 8;"/>
+                </VBox>
+
+                <VBox spacing="5">
+                    <Label text="Rol de Usuario" style="-fx-font-weight: bold; -fx-text-fill: #475569;"/>
+                    <ComboBox fx:id="cbRol" maxWidth="Infinity" promptText="Seleccione su rol" style="-fx-pref-height: 40; -fx-background-radius: 8;"/>
+                </VBox>
+
+                <VBox fx:id="containerCodigo" spacing="5" managed="false" visible="false">
+                    <Label text="Código de Autorización (Solo para Admin/Portero)" style="-fx-font-weight: bold; -fx-text-fill: #b91c1c;"/>
+                    <PasswordField fx:id="txtCodigoAutorizacion" promptText="Ingrese el código" style="-fx-pref-height: 40; -fx-background-radius: 8; -fx-border-color: #fca5a5; -fx-border-radius: 8;"/>
+                </VBox>
+
+                <VBox spacing="5">
+                    <Label text="Contraseña" style="-fx-font-weight: bold; -fx-text-fill: #475569;"/>
+                    <PasswordField fx:id="txtPassword" promptText="••••••••" style="-fx-pref-height: 40; -fx-background-radius: 8;"/>
+                </VBox>
+
+                <VBox spacing="5">
+                    <Label text="Confirmar Contraseña" style="-fx-font-weight: bold; -fx-text-fill: #475569;"/>
+                    <PasswordField fx:id="txtConfirmPassword" promptText="••••••••" style="-fx-pref-height: 40; -fx-background-radius: 8;"/>
+                </VBox>
+            </VBox>
+
+            <VBox spacing="15" alignment="CENTER">
+                <Button text="Registrarse" onAction="#onRegister" maxWidth="Infinity" styleClass="btn-primary" style="-fx-pref-height: 45; -fx-background-color: #1e293b; -fx-background-radius: 8; -fx-font-size: 14;"/>
+
+                <Hyperlink text="¿Ya tiene una cuenta? Inicie sesión" onAction="#onBackToLogin" style="-fx-text-fill: #3b82f6; -fx-font-size: 13;"/>
+
+                <Label fx:id="lblMensaje" style="-fx-font-weight: bold;"/>
+            </VBox>
+        </VBox>
+    </StackPane>
+
+</ScrollPane>
