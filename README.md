@@ -9,10 +9,26 @@
 
 ## Uso de la aplicación
 
-![Pantallazo 1](imagenes/p1.png)
+![Pantallazo 1](Inicio de sesion hospital san rafael.png)
 
-![Pantallazo 2](imagenes/p2.png)
+![Pantallazo 2](Crear cuenta.png)
 
-![Pantallazo 3](imagenes/p3.png)
+![Pantallazo 3](Porteria.png)
 
-![Pantallazo 4](imagenes/p4.png)
+![Pantallazo 4](Registro estudinates.png)
+
+![Pantallazo 5](Registro estudinates 2.png)
+
+![Pantallazo 6](Plan de practicas.png)
+
+![Pantallazo 7](Control de presensia.png)
+
+![Pantallazo 8](Reportes y estadisticas.png)
+
+![Pantallazo 9](Notificaciones.png)
+
+
+
+
+
+
