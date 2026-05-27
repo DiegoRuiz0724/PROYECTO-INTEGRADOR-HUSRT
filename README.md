@@ -15,9 +15,9 @@
 
 ![Pantallazo 3](Porteria.png)
 
-![Pantallazo 4](Registro estudinates.png)
+![Pantallazo 4](Registro estudiantes.png)
 
-![Pantallazo 5](Registro estudinates 2.png)
+![Pantallazo 5](Registro estudiantes 2.png)
 
 ![Pantallazo 6](Plan de practicas.png)
 
